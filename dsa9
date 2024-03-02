@@ -1,0 +1,16 @@
+class Solution{
+    public:
+    int firstElementKTime(int n, int k, int a[])
+    {
+        int ans = -1;
+        int freq[201] = {0};
+        for(int i = 0; i < n; i++){
+            freq[a[i]]++;
+            if(freq[a[i]]==k){
+                ans = a[i];
+                break;
+            }
+        }
+        return ans;
+    }
+};
