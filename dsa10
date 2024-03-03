@@ -1,0 +1,11 @@
+class Solution{
+public:
+	string printLargest(int n, vector<string> &arr) {
+	    sort(arr.begin(), arr.end(), [](string&left, string&right){
+	        return left + right > right + left;
+	   });
+	   string res = "";
+	   for(auto it : arr) res += it;
+	   return res;
+	}
+};
