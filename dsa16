@@ -1,0 +1,38 @@
+class Solution{
+  public:
+    char nthCharacter(string s, int r, int n) {
+        //code here
+        if(r==0){
+            return s[n];
+        }
+        int i=0;
+        int wordlen = pow(2,r);
+        string temp;
+        while(i<s.length()){
+            if(n+1<=wordlen){
+                temp = s[i];
+                break;
+            }
+            else{
+                n=n-wordlen;
+            }
+            i++;
+        }
+        //cout<<i<<endl;
+        //cout<<temp<<endl;
+        while(temp.length()<n+1){
+            string make = "";
+            for(i=0;i<temp.length();i++){
+                if(temp[i]=='1'){
+                    make+="10";
+                }
+                else{
+                    make+="01";
+                }
+            }
+            temp = make;
+        }
+        //cout<<temp<<endl;
+        return temp[n];
+    }
+};
