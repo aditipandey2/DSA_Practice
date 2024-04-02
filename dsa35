@@ -1,0 +1,19 @@
+class Solution
+{
+    public:
+     void solve(Node* root,int &prev,int &ans){
+        if(!root)
+        return;
+        
+        solve(root->left,prev,ans);
+        ans=min(ans,abs(prev-root->data));
+        prev=root->data;
+        solve(root->right,prev,ans);
+    }
+    int absolute_diff(Node *root)
+    {
+        int prev=INT_MAX,ans=INT_MAX;
+        solve(root,prev,ans);
+        return ans;
+    }
+};
